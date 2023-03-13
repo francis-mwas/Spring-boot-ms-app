@@ -1,0 +1,9 @@
+#Eureka service registry configuartions
+server:
+    port: 8585
+eureka:
+  instance:
+     hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
