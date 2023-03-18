@@ -1,5 +1,6 @@
-package com.fram.PaymentService.model;
+package com.fram.OrderService.external.request;
 
+import com.fram.OrderService.model.PaymentMode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
