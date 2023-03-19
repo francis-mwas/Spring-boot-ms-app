@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService{
                         404));
 
         log.info("Invoking Product service, to get the product details by Id"+ order.getProductId());
-        ProductResponse productResponse = restTemplate.getForObject("http://PRODUCT-SERVICE/v1/products"+ order.getProductId(),
+        ProductResponse productResponse = restTemplate.getForObject("http://PRODUCT-SERVICE/v1/products/"+ order.getProductId(),
                 ProductResponse.class);
         assert productResponse != null;
         OrderResponse.ProductDetails productDetails = OrderResponse.ProductDetails
@@ -52,8 +52,12 @@ public class OrderServiceImpl implements OrderService{
                                         .build();
 
         log.info("Getting payment details from payment service");
-        PaymentResponse paymentResponse = restTemplate.getForObject("http://PAYMENT-SERVICE/v1/payments/order"+order.getId(),
-                PaymentResponse.class);
+        PaymentResponse paymentResponse
+                = restTemplate.getForObject(
+                "http://PAYMENT-SERVICE/v1/payments/order/" + order.getId(),
+                PaymentResponse.class
+        );
+
 
 //        private long paymentId;
 //        private long amount;
