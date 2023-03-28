@@ -10,7 +10,6 @@ import com.fram.OrderService.external.request.PaymentRequest;
 import com.fram.OrderService.external.response.PaymentResponse;
 import com.fram.OrderService.model.OrderRequest;
 import com.fram.OrderService.model.OrderResponse;
-import com.fram.OrderService.model.PaymentMode;
 import com.fram.OrderService.repository.OrderRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
