@@ -20,7 +20,7 @@ public interface ProductService {
     );
 
     //adding default fallback method for circuit breaker
-    default void fallback(Exception e){
+    default  ResponseEntity<Void> fallback(Exception e){
         throw new CustomException("Product Service is not available", "UNAVAILABLE", 500);
     }
 }

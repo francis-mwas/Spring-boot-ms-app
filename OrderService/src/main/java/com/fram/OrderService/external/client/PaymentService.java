@@ -21,7 +21,7 @@ public interface PaymentService {
     public ResponseEntity<Long> doPayment(@RequestBody PaymentRequest paymentRequest);
 
 //adding default fallback method for circuit breaker
-default void fallback(Exception e){
+default ResponseEntity<Long> fallback(Exception e){
     throw new CustomException("Payment Service is not available", "UNAVAILABLE", 500);
 }
 }

@@ -10,4 +10,6 @@ class OrderServiceApplicationTests {
 	void contextLoads() {
 	}
 
+	public static class TestServiceInstanceListSupplier {
+	}
 }
