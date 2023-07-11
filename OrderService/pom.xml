@@ -82,6 +82,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.fam.</groupId>
 			<artifactId>ProductService</artifactId>
 			<version>0.0.1-SNAPSHOT</version>

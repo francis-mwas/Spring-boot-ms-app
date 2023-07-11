@@ -1,0 +1,32 @@
+version: '3'
+services:
+  serviceregistry:
+    image: 'francis-mwas/serviceregistry:0.0.1'
+    container_name: serviceregistry
+    ports:
+      - '8585:8585'
+  configserver:
+    image: 'francis-mwas/configserver:0.0.1'
+    container_name: configserver
+    ports:
+      - '9296:9296'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://serviceregistry:8761/eureka
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://configserver:9296/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    depends_on:
+      - serviceregistry
+  cloudgateway:
+    image: 'francis-mwas/cloudgateway:latest'
+    container_name: cloudgateway
+    ports:
+      - '8989:8989'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://serviceregistry:8761/eureka
+      - CONFIG_SERVER_URL=configserver
+    depends_on:
+      configserver:
+        condition: service_healthy
